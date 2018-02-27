@@ -1,11 +1,11 @@
 /// <reference path="./src/index.ts" />
 
-import * as express from 'express'
-import { Extender, extenderMiddelware } from './src/index'
-const app = express()
+import * as express from 'express';
+import { Extender, extenderMiddleware } from './src/index';
+const app = express();
 
 const extender = new Extender()
-app.use(extenderMiddelware([{
+app.use(extenderMiddleware([{
   url: '/foo',
   apply: extender.update()
 }]));
@@ -14,4 +14,4 @@ app.get('/foo', (req, res) => {
   res.json({ a: 'a' });
 });
 
-app.listen(3000)
+app.listen(3000);
