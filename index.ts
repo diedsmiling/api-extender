@@ -1,19 +1,17 @@
 /// <reference path="./src/index.ts" />
 
 import * as express from 'express'
-import { extender, middelware } from './src/index'
+import { Extender, extenderMiddelware } from './src/index'
 const app = express()
 
-console.log(extender)
-app.use(extender([
-    {
-        url: '/foo',
-        apply: extender.update(['b, c'], {})
-    }
-]));
+const extender = new Extender()
+app.use(extenderMiddelware([{
+  url: '/foo',
+  apply: extender.update()
+}]));
 
-app.get('/foo', function (req, res) {
-    res.json({a: 'a'})
-})
+app.get('/foo', (req, res) => {
+  res.json({ a: 'a' });
+});
 
 app.listen(3000)
