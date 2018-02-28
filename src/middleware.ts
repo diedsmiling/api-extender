@@ -1,9 +1,8 @@
 import * as mung from 'express-mung';
-import { jsonObject, extendable } from './types';
+import { extendable } from './types';
 
-export function extenderMiddleware(modifiers: [extendable]) {
-  function redact(body: jsonObject) {
-    body.secret = '****';
+export function extenderMiddleware(modifiers: extendable[]) {
+  function redact(body: object) {
     return body;
   }
   console.log(mung);
