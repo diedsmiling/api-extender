@@ -13,11 +13,11 @@ extender.update('a.b.c', list)
 console.log(Extender);
 app.use(extenderMiddleware([{
   url: '/foo',
-  apply: extender.update('a.b.c', list)
+  apply: extender.update('a.b', { k: 'll' })
 }]));
 
 app.get('/foo', (req, res) => {
-  res.json({ a: 'a' });
+  res.json({ a: { b: 'dd' } });
 });
 
 app.listen(3000);

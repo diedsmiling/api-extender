@@ -10,7 +10,7 @@ export interface extendable {
 }
 
 export interface modifierInterface {
-  (body: jsonObject): any;
+  (body: object): any;
 }
 
 export interface applierInterface {
