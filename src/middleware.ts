@@ -1,11 +1,15 @@
 import * as mung from 'express-mung';
 import { extendable } from './types';
+import * as express from 'express';
+import { find } from 'lodash';
 
 export function extenderMiddleware(modifiers: extendable[]) {
-  function redact(body: object, req: Request) {
-    console.log(req.originalUrl);
-    return modifiers[0].apply(body);
+  function redact(body: object, req: express.Request) {
+    const suitableModifier = find(modifiers, (o) => { return o.url === req.originalUrl; });
+    if (suitableModifier) {
+      return suitableModifier.apply(body);
+    }
   }
-  console.log(mung);
+
   return mung.json(redact);
 }
