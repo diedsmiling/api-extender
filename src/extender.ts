@@ -1,8 +1,8 @@
 import { update, unset } from 'lodash';
-import { ExtenderInterface, jsonObject } from './types';
+import { ExtenderInterface, jsonObject, JSON } from './types';
 
 export class Extender implements ExtenderInterface {
-  update(path: string, newValue: jsonObject) {
+  update(path: string, newValue: JSON) {
     return (body: jsonObject) => update(body, path, () => newValue);
   }
   delete(path: string) {
