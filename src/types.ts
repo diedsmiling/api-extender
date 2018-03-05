@@ -19,6 +19,17 @@ export interface applierInterface {
   (path: string, newValue: JSON): modifierInterface;
 }
 
+export interface deleterInterface {
+  (path: string): modifierInterface;
+}
+
+export interface arrayModifierInterface {
+  (path: string, element: JSON): modifierInterface;
+}
+
 export interface ExtenderInterface {
   update: applierInterface;
+  delete: deleterInterface;
+  push: arrayModifierInterface;
+  unshift: arrayModifierInterface;
 }
