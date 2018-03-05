@@ -5,7 +5,7 @@ const app = express();
 
 const extender = new Extender();
 
-extender.update('a.b.c', 'a')
+extender.set('a.b.c', 'a')
 
 app.use(extenderMiddleware([
   {
@@ -13,8 +13,8 @@ app.use(extenderMiddleware([
     apply: extender.delete('a.b')
   },
   {
-    url: '/bar',
-    apply: extender.update('a.b', true)
+    url: '/baz',
+    apply: extender.set('a.b.c', true)
   },
   {
     url: '/baz',

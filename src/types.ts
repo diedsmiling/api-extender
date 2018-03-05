@@ -28,7 +28,7 @@ export interface arrayModifierInterface {
 }
 
 export interface ExtenderInterface {
-  update: applierInterface;
+  set: applierInterface;
   delete: deleterInterface;
   push: arrayModifierInterface;
   unshift: arrayModifierInterface;
