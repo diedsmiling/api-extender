@@ -6,7 +6,7 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "declaration": true,
-    "rootDir": ".",
+    "rootDir": "src",
     "outDir": "lib",
     "allowSyntheticDefaultImports": true,
     "removeComments": true,
@@ -15,8 +15,8 @@
     "noFallthroughCasesInSwitch": true
   },
   "files": [
-    "index.ts",
     "src/index.ts",
-    "src/types.ts"
+    "src/types.ts",
+    "src/__tests__/middleware.test.ts"
   ]
 }

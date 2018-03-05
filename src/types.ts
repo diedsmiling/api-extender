@@ -8,23 +8,23 @@ export type jsonArray =  (string | number | boolean)[];
 
 export interface extendable {
   url: string;
-  apply: modifierInterface;
+  apply: ModifierInterface;
 }
 
-export interface modifierInterface {
+export interface ModifierInterface {
   (body: object): any;
 }
 
 export interface applierInterface {
-  (path: string, newValue: JSON): modifierInterface;
+  (path: string, newValue: JSON): ModifierInterface;
 }
 
 export interface deleterInterface {
-  (path: string): modifierInterface;
+  (path: string): ModifierInterface;
 }
 
 export interface arrayModifierInterface {
-  (path: string, element: JSON): modifierInterface;
+  (path: string, element: JSON): ModifierInterface;
 }
 
 export interface ExtenderInterface {

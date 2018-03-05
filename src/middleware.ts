@@ -3,7 +3,7 @@ import { extendable } from './types';
 import * as express from 'express';
 import { find } from 'lodash';
 
-export function extenderMiddleware(modifiers: extendable[]) {
+export function apiExtenderMiddleware(modifiers: extendable[]) {
   function redact(body: object, req: express.Request) {
     const suitableModifier = find(modifiers, (o) => { return o.url === req.originalUrl; });
     if (suitableModifier) {

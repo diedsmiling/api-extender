@@ -1,20 +1,19 @@
 import * as express from 'express';
-import { Extender, extenderMiddleware } from './src/index';
-import { jsonObject, JSON } from './src/types';
+import { Extender, apiExtenderMiddleware } from './src/index';
 const app = express();
 
 const extender = new Extender();
 
-extender.set('a.b.c', 'a')
+const customModdifier = () => ({ foo: 'bar' })
 
-app.use(extenderMiddleware([
+app.use(apiExtenderMiddleware([
   {
     url: '/foo',
     apply: extender.delete('a.b')
   },
   {
     url: '/baz',
-    apply: extender.set('a.b.c', true)
+    apply: customModdifier
   },
   {
     url: '/baz',
